@@ -5,11 +5,19 @@ import math
 
 cap = cv2.VideoCapture(0)
 
+# 🔹 FULLSCREEN WINDOW SETUP
+cv2.namedWindow("Air Canvas", cv2.WINDOW_NORMAL)
+cv2.setWindowProperty(
+    "Air Canvas",
+    cv2.WND_PROP_FULLSCREEN,
+    cv2.WINDOW_FULLSCREEN
+)
+
 mp_hands = mp.solutions.hands
 mp_draw = mp.solutions.drawing_utils
 
 hands = mp_hands.Hands(
-    max_num_hands=2,   # 👈 TWO HANDS ENABLED
+    max_num_hands=2,
     min_detection_confidence=0.6,
     min_tracking_confidence=0.6
 )
@@ -136,6 +144,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
